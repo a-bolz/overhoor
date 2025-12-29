@@ -1,0 +1,102 @@
+.track-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(2.5rem, 10vw, 4rem);
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #888;
+  margin: 0.5rem 0 2rem;
+}
+
+.track-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 400px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.track-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border: 2px solid #444;
+  border-radius: 12px;
+  background: #2a2a3c;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.track-button:hover {
+  border-color: #667eea;
+  transform: translateY(-2px);
+}
+
+.track-button.selected {
+  border-color: #667eea;
+  background: linear-gradient(145deg, #3a3a5c, #2a2a4c);
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+.track-label {
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.track-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.start-button {
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 2rem;
+}
+
+.start-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.start-button:active {
+  transform: translateY(0);
+}
+
+.instructions {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.instructions p {
+  margin: 0.3rem 0;
+}
