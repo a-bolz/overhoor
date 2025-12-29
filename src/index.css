@@ -44,15 +44,8 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Smooth animations */
-* {
-  transition-property: transform, opacity, box-shadow, background-color,
-    border-color;
-  transition-duration: 0.2s;
-  transition-timing-function: ease;
-}
-
 /* Reset button styles */
 button {
   font-family: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }

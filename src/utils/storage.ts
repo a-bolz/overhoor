@@ -92,3 +92,26 @@ export function getSavedTrack(): Track {
 export function saveTrack(track: Track): void {
   localStorage.setItem(TRACK_KEY, track.toString());
 }
+
+// Timer settings
+const TIMER_KEY = 'overhoor_timer';
+
+export type TimerSetting = number | 'off'; // number = seconds (1-30), 'off' = no timer
+
+export function getTimerSetting(): TimerSetting {
+  try {
+    const stored = localStorage.getItem(TIMER_KEY);
+    if (stored === 'off') return 'off';
+    if (stored) {
+      const seconds = parseInt(stored, 10);
+      if (seconds >= 1 && seconds <= 30) return seconds;
+    }
+  } catch {
+    // Ignore
+  }
+  return 'off'; // Default: no timer
+}
+
+export function saveTimerSetting(setting: TimerSetting): void {
+  localStorage.setItem(TIMER_KEY, setting.toString());
+}

@@ -8,6 +8,8 @@ interface QuestionCardProps {
   onCorrect: () => void;
   onWrong: () => void;
   disabled: boolean;
+  timeRemaining: number | null;
+  totalTime: number | null;
 }
 
 export function QuestionCard({
@@ -16,6 +18,8 @@ export function QuestionCard({
   onCorrect,
   onWrong,
   disabled,
+  timeRemaining,
+  totalTime,
 }: QuestionCardProps) {
   const [{ offsetX, isDragging }, handlers] = useSwipe({
     onSwipeRight: () => !disabled && onCorrect(),
@@ -25,6 +29,15 @@ export function QuestionCard({
 
   const swipeDirection =
     offsetX > 50 ? 'right' : offsetX < -50 ? 'left' : 'none';
+
+  // Calculate progress percentage
+  const progressPercent =
+    timeRemaining !== null && totalTime !== null
+      ? (timeRemaining / totalTime) * 100
+      : null;
+
+  // Determine if timer is running low (< 25%)
+  const timerLow = progressPercent !== null && progressPercent < 25;
 
   return (
     <div
@@ -46,6 +59,16 @@ export function QuestionCard({
         <span className="hint hint-left">Wrong</span>
         <span className="hint hint-right">Correct</span>
       </div>
+
+      {/* Timer Progress Bar */}
+      {progressPercent !== null && !showAnswer && (
+        <div className="timer-bar-container">
+          <div
+            className={`timer-bar ${timerLow ? 'timer-low' : ''}`}
+            style={{ width: `${progressPercent}%` }}
+          />
+        </div>
+      )}
     </div>
   );
 }
