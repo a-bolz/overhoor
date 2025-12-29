@@ -21,22 +21,18 @@ html,
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
 body {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  min-height: 100vh;
 }
 
 #root {
-  min-height: 100vh;
-}
-
-/* Prevent pull-to-refresh on mobile */
-html {
-  overscroll-behavior: none;
+  height: 100%;
+  overflow: hidden;
 }
 
 /* Remove tap highlight on mobile */

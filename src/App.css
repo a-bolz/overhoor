@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
   padding: 1rem;
   padding-top: 4rem;
   overflow: hidden;
@@ -70,10 +70,11 @@
 /* Landscape optimization */
 @media (orientation: landscape) {
   .practice-header {
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
   }
 
   .practice-screen {
-    padding-top: 3rem;
+    padding-top: 2.5rem;
+    padding-bottom: 0.5rem;
   }
 }
